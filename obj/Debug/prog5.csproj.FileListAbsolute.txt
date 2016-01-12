@@ -1,0 +1,9 @@
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\prog5.dll.config
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\prog5.dll
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\prog5.pdb
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\Newtonsoft.Json.dll
+C:\Users\Jeroen\Documents\GitHub\prog5\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Jeroen\Documents\GitHub\prog5\obj\Debug\prog5.csprojResolveAssemblyReference.cache
+C:\Users\Jeroen\Documents\GitHub\prog5\obj\Debug\prog5.dll
+C:\Users\Jeroen\Documents\GitHub\prog5\obj\Debug\prog5.pdb
