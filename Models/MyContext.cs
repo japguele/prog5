@@ -13,5 +13,6 @@ namespace prog5.Models
             Database.SetInitializer(new MyDBInitializer());
         }
         public DbSet<Kamer> Kamers { get; set; }
+        public DbSet<Prijs> Prijs { get; set; }
     }
 }

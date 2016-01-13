@@ -15,7 +15,6 @@ namespace prog5.Controllers
             {
                 var kamers = context.Kamers.ToList();
                 ViewBag.kamers = kamers;
-                ViewBag.msg = "Hello World";
                 return View();
 
             }

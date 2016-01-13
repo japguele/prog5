@@ -7,17 +7,12 @@ using System.Web;
 
 namespace prog5.Models
 {
-    [Table("Kamer")]
-    public class Kamer
+    [Table("Prijs")]
+    public class Prijs
     {
         [Key]
-        public int KamerNr { get; set; }
-
         public String Naam { get; set; }
 
-        public int Capaciteit { get; set; }
-
-        public int Prijs { get; set; }
-
+        public int Kosten { get; set; }
     }
 }
