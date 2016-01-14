@@ -16,8 +16,6 @@ namespace prog5.Models
         public String Naam { get; set; }
 
         public int Capaciteit { get; set; }
-
-        public int Prijs { get; set; }
-
+        
     }
 }

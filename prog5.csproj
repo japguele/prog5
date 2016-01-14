@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KamersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,6 +225,11 @@
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Kamer.cshtml" />
+    <Content Include="Views\Kamers\Create.cshtml" />
+    <Content Include="Views\Kamers\Delete.cshtml" />
+    <Content Include="Views\Kamers\Details.cshtml" />
+    <Content Include="Views\Kamers\Edit.cshtml" />
+    <Content Include="Views\Kamers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
