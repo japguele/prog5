@@ -13,6 +13,7 @@ namespace prog5.Models
             Database.SetInitializer(new MyDBInitializer());
         }
         public DbSet<Kamer> Kamers { get; set; }
+        public DbSet<Prijs> Prijs { get; set; }
         public DbSet<Gast> Gast { get; set; }
         public DbSet<Booking> Booking { get; set; }
     }

@@ -6,19 +6,95 @@ using System.Text;
 
 namespace prog5.Models
 {
-    public class MyDBInitializer : DropCreateDatabaseIfModelChanges<MyContext>
+    //public class MyDBInitializer : DropCreateDatabaseIfModelChanges<MyContext>
+    public class MyDBInitializer : DropCreateDatabaseAlways<MyContext>
     {
         protected override void Seed(MyContext context)
         {
+
+            context.Prijs.Add(new Prijs()
+            {
+                Naam = "Normale prijs",
+                Kosten = 20,
+            });
+
+            context.Prijs.Add(new Prijs()
+            {
+                Naam = "Hoogseizoen",
+                Kosten = 30,
+            });
+
+            context.Prijs.Add(new Prijs()
+            {
+                Naam = "Laagseizoen",
+                Kosten = 10,
+            });
+
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 2,
+                Naam = "Red room",
+            });
             context.Kamers.Add(new Kamer()
             {
                 Capaciteit = 3,
-                Naam = "Love room",
+                Naam = "Blue room",
             });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 5,
+                Naam = "Green room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 2,
+                Naam = "Yellow room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 3,
+                Naam = "Orange room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 5,
+                Naam = "Purple room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 2,
+                Naam = "Rainbow room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 3,
+                Naam = "Black room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 5,
+                Naam = "White room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 2,
+                Naam = "Grey room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 3,
+                Naam = "Transparant room",
+            });
+            context.Kamers.Add(new Kamer()
+            {
+                Capaciteit = 5,
+                Naam = "Invisible room",
+            });
+
 
             context.Gast.Add(new Gast()
             {
-                GastNr = 0,
+               
                 Naam = "jan",
                 TussenVoegsel = "van",
                 Achternaam = "hooi",
@@ -32,13 +108,7 @@ namespace prog5.Models
 
             });
 
-            context.Booking.Add(new Booking()
-            {
-                GastNr = 0,
-                StartDate = new DateTime(2015, 1, 15),
-                EndDate = new DateTime(2015, 1, 17),
-
-            });
+         
             context.SaveChanges();
         }
     }

@@ -1,0 +1,30 @@
+﻿@model List<prog5.Models.Kamer>
+
+@{
+    ViewBag.Title = "BookRoom";
+}
+
+<h2>BookRoom</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capaciteit)
+        </td>
+        <td>
+            @Html.ActionLink("Book", "Period", new { id = item.KamerNr })
+          
+        </td>
+    </tr>
+}
+
+</table>

@@ -14,8 +14,9 @@ namespace prog5.Controllers
             using(var context = new MyContext())
             {
                 var kamers = context.Kamers.ToList();
+                var prijs = context.Prijs.ToList();
                 ViewBag.kamers = kamers;
-                ViewBag.msg = "Hello World";
+                ViewBag.prijs = prijs;
                 return View();
 
             }
