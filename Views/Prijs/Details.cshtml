@@ -1,0 +1,26 @@
+﻿@model prog5.Models.Prijs
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prijs</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kosten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kosten)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Naam }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -28,5 +28,11 @@ namespace prog5.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<prog5.Models.Booking> Bookings { get; set; }
+
+        public System.Data.Entity.DbSet<prog5.Models.Gast> Gasts { get; set; }
+
+        public System.Data.Entity.DbSet<prog5.Models.Kamer> Kamers { get; set; }
     }
 }

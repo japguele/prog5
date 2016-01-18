@@ -7,15 +7,16 @@ using System.Web;
 
 namespace prog5.Models
 {
-    [Table("Prijs")]
-    public class Prijs
+    [Table("PrijsPeriode")]
+    public class PrijsPeriode
     {
-        [Key]
         public int id { get; set; }
 
-        public String Naam { get; set; }
+        [ForeignKey("id")]
+        public virtual Prijs prijs { get; set; }
 
-        public int Kosten { get; set; }
+        public DateTime BeginDatum { get; set; }
 
+        public DateTime EindDatum { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace prog5.Models
         }
         public DbSet<Kamer> Kamers { get; set; }
         public DbSet<Prijs> Prijs { get; set; }
+        public DbSet<Gast> Gast { get; set; }
+        public DbSet<Booking> Booking { get; set; }
     }
 }

@@ -159,17 +159,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KamersController.cs" />
+    <Compile Include="Controllers\PrijsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Gast.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kamer.cs" />
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\MyDBInitializer.cs" />
     <Compile Include="Models\Prijs.cs" />
+    <Compile Include="Models\PrijsPeriode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,12 +228,16 @@
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Kamer.cshtml" />
-    <Content Include="Views\Kamers\Create.cshtml" />
-    <Content Include="Views\Kamers\Delete.cshtml" />
-    <Content Include="Views\Kamers\Details.cshtml" />
-    <Content Include="Views\Kamers\Edit.cshtml" />
-    <Content Include="Views\Kamers\Index.cshtml" />
+    <Content Include="Views\Booking\Create.cshtml" />
+    <Content Include="Views\Booking\Delete.cshtml" />
+    <Content Include="Views\Booking\Details.cshtml" />
+    <Content Include="Views\Booking\Edit.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Prijs\Create.cshtml" />
+    <Content Include="Views\Prijs\Delete.cshtml" />
+    <Content Include="Views\Prijs\Details.cshtml" />
+    <Content Include="Views\Prijs\Edit.cshtml" />
+    <Content Include="Views\Prijs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

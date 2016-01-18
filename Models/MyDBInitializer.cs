@@ -92,6 +92,29 @@ namespace prog5.Models
             });
 
 
+            context.Gast.Add(new Gast()
+            {
+                GastNr = 0,
+                Naam = "jan",
+                TussenVoegsel = "van",
+                Achternaam = "hooi",
+                Geboortedatum = new DateTime(2000,1,15),
+                Vrouw = false,
+                Woonplaats = "Nijmegen",
+                Email = "janvanhooi@email.nl",
+                Postcode = "1234 ab",
+                Addres = "poffertjesstraat 2",
+    
+
+            });
+
+            context.Booking.Add(new Booking()
+            {
+                GastNr = 0,
+                StartDate = new DateTime(2015, 1, 15),
+                EndDate = new DateTime(2015, 1, 17),
+
+            });
             context.SaveChanges();
         }
     }
