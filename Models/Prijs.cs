@@ -14,5 +14,6 @@ namespace prog5.Models
         public String Naam { get; set; }
 
         public int Kosten { get; set; }
+
     }
 }
