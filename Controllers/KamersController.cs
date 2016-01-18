@@ -17,7 +17,8 @@ namespace prog5.Controllers
         // GET: Kamers
         public ActionResult Index()
         {
-            return View(db.Kamers.ToList());
+            var kamers = db.Kamers.Include(k => k.PrijsPeriode);
+            return View(kamers.ToList());
         }
 
         // GET: Kamers/Details/5
@@ -38,6 +39,7 @@ namespace prog5.Controllers
         // GET: Kamers/Create
         public ActionResult Create()
         {
+            ViewBag.PeriodeId = new SelectList(db.PrijsPeriode, "id", "id");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace prog5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "KamerNr,Naam,Capaciteit,Prijs")] Kamer kamer)
+        public ActionResult Create([Bind(Include = "KamerNr,Naam,Capaciteit,MinimalePrijs,PeriodeId")] Kamer kamer)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace prog5.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.PeriodeId = new SelectList(db.PrijsPeriode, "id", "id", kamer.PeriodeId);
             return View(kamer);
         }
 
@@ -70,6 +73,7 @@ namespace prog5.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.PeriodeId = new SelectList(db.PrijsPeriode, "id", "id", kamer.PeriodeId);
             return View(kamer);
         }
 
@@ -78,7 +82,7 @@ namespace prog5.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "KamerNr,Naam,Capaciteit,Prijs")] Kamer kamer)
+        public ActionResult Edit([Bind(Include = "KamerNr,Naam,Capaciteit,MinimalePrijs,PeriodeId")] Kamer kamer)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace prog5.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.PeriodeId = new SelectList(db.PrijsPeriode, "id", "id", kamer.PeriodeId);
             return View(kamer);
         }
 

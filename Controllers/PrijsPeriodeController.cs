@@ -10,107 +10,112 @@ using prog5.Models;
 
 namespace prog5.Controllers
 {
-    public class PrijsController : Controller
+    public class PrijsPeriodeController : Controller
     {
         private MyContext db = new MyContext();
 
-        // GET: Prijs
+        // GET: PrijsPeriode
         public ActionResult Index()
         {
-            return View(db.Prijs.ToList());
+            var prijsPeriode = db.PrijsPeriode.Include(p => p.prijs);
+            return View(prijsPeriode.ToList());
         }
 
-        // GET: Prijs/Details/5
+        // GET: PrijsPeriode/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prijs prijs = db.Prijs.Find(id);
-            if (prijs == null)
+            PrijsPeriode prijsPeriode = db.PrijsPeriode.Find(id);
+            if (prijsPeriode == null)
             {
                 return HttpNotFound();
             }
-            return View(prijs);
+            return View(prijsPeriode);
         }
 
-        // GET: Prijs/Create
+        // GET: PrijsPeriode/Create
         public ActionResult Create()
         {
+            ViewBag.id = new SelectList(db.Prijs, "id", "Naam");
             return View();
         }
 
-        // POST: Prijs/Create
+        // POST: PrijsPeriode/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Naam,Kosten")] Prijs prijs)
+        public ActionResult Create([Bind(Include = "PrijsPeriodeId,id,BeginDatum,EindDatum")] PrijsPeriode prijsPeriode)
         {
             if (ModelState.IsValid)
             {
-                db.Prijs.Add(prijs);
+                db.PrijsPeriode.Add(prijsPeriode);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(prijs);
+            ViewBag.id = new SelectList(db.Prijs, "id", "Naam", prijsPeriode.id);
+            return View(prijsPeriode);
         }
 
-        // GET: Prijs/Edit/5
+        // GET: PrijsPeriode/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prijs prijs = db.Prijs.Find(id);
-            if (prijs == null)
+            PrijsPeriode prijsPeriode = db.PrijsPeriode.Find(id);
+            if (prijsPeriode == null)
             {
                 return HttpNotFound();
             }
-            return View(prijs);
+            ViewBag.id = new SelectList(db.Prijs, "id", "Naam", prijsPeriode.id);
+            return View(prijsPeriode);
         }
 
-        // POST: Prijs/Edit/5
+        // POST: PrijsPeriode/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Naam,Kosten")] Prijs prijs)
+        public ActionResult Edit([Bind(Include = "PrijsPeriodeId,id,BeginDatum,EindDatum")] PrijsPeriode prijsPeriode)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(prijs).State = EntityState.Modified;
+                db.Entry(prijsPeriode).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(prijs);
+            ViewBag.id = new SelectList(db.Prijs, "id", "Naam", prijsPeriode.id);
+            return View(prijsPeriode);
         }
 
-        // GET: Prijs/Delete/5
+        // GET: PrijsPeriode/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Prijs prijs = db.Prijs.Find(id);
-            if (prijs == null)
+            PrijsPeriode prijsPeriode = db.PrijsPeriode.Find(id);
+            if (prijsPeriode == null)
             {
                 return HttpNotFound();
             }
-            return View(prijs);
+            return View(prijsPeriode);
         }
 
-        // POST: Prijs/Delete/5
+        // POST: PrijsPeriode/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Prijs prijs = db.Prijs.Find(id);
-            db.Prijs.Remove(prijs);
+            PrijsPeriode prijsPeriode = db.PrijsPeriode.Find(id);
+            db.PrijsPeriode.Remove(prijsPeriode);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
