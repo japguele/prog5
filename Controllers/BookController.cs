@@ -50,25 +50,115 @@ namespace prog5.Controllers
 
                 db.Booking.Add(book);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Balance/" + book.Booknr);
             }
 
             return View(gast);
         }
-        public ActionResult Period(int? id)
+
+        public ActionResult Balance(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Booking book = db.Booking.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+             ViewBag.Prijs = book.Kamer.MinimalePrijs;
+               int prijs = 0;
+            if (book.Kamer.PeriodeId.HasValue)
+            {
+             
+                DateTime day = book.StartDate;
+                TimeSpan d = book.EndDate - book.StartDate;
+                for (int x = 0; x < d.Days; x++)
+                {
+                    day.AddDays(1);
+
+                    if (day >= book.Kamer.PrijsPeriode.BeginDatum && day <= book.Kamer.PrijsPeriode.EindDatum)
+                    {
+                        prijs = prijs +  book.Kamer.PrijsPeriode.prijs.Kosten;
+                    }else{
+                        prijs = prijs +  book.Kamer.MinimalePrijs;
+                    }
+
+                }
+
+
+
+            }
+            else
+            {
+                TimeSpan d = book.EndDate - book.StartDate;
+                prijs = d.Days * book.Kamer.MinimalePrijs;
+            }
+            ViewBag.Prijs = prijs;
+            return View(book);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Period(int? id,[Bind(Include = "Startdate,EndDate")] BookKamerModel m)
+        {
+            Kamer k = db.Kamers.Find(id);
+
+            if (k == null)
+            {
+
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            List<Booking> bookings = db.Booking.Where(i => i.KamerNr == k.KamerNr).ToList();
+            bool ocupied = false;
+            DateTime startdate = DateTime.Parse(Request.Form["Book.StartDate"]);
+            
+            DateTime enddate = DateTime.Parse(Request.Form["Book.EndDate"]);
+            foreach (Booking b in bookings)
+            {
+                if ((b.StartDate < startdate && startdate < b.EndDate) || (b.StartDate < enddate && enddate < b.EndDate))
+                {
+                    ocupied = true;
+                }
+            }
+            if (startdate < enddate)
+            {
+                if (!ocupied)
+                {
+                    Response.Cookies.Add(new HttpCookie("StartDate", Request.Form["Book.Startdate"]));
+
+                    Response.Cookies.Add(new HttpCookie("EndDate", Request.Form["Book.EndDate"]));
+                    Response.BufferOutput = true;
+                    return RedirectToAction("Register/" + id); //Response.Redirect("http://localhost:49580/Book/Register/" + id);
+                }
+                else
+                {
+                    ViewBag.Error = "Allready ocupied";
+                }
+
+            }
+            else
+            {
+                ViewBag.Error = "EndDate is not afther startDate";
+            }
+            BookKamerModel ka = new BookKamerModel();
+            ka.Kamer = k;
+
+
+
+            ka.Booking = db.Booking.Where(i => i.KamerNr == id).ToList();
+            
+            return View(ka);
+
             
 
-            if (Request.Form["Book.StartDate"] != null)
-            {
-                Response.Cookies.Add(new HttpCookie("StartDate", Request.Form["Book.StartDate"]));
+        }
+        public ActionResult Period(int? id)
+        {            
 
-                Response.Cookies.Add(new HttpCookie("EndDate", Request.Form["Book.EndDate"]));
-                Response.BufferOutput = true;
-                return RedirectToAction("Register/" + id); //Response.Redirect("http://localhost:49580/Book/Register/" + id);
-                
-                
-            }
+           
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -81,8 +171,7 @@ namespace prog5.Controllers
             BookKamerModel k = new BookKamerModel();
             k.Kamer = kamer;
             
-            Response.Cookies["Roomid"].Value = id.ToString();
-            
+           
            
             k.Booking = db.Booking.Where(i => i.KamerNr == id).ToList();
             

@@ -21,6 +21,9 @@
             @Html.DisplayFor(modelItem => item.Capaciteit)
         </td>
         <td>
+           lowest price : @Html.DisplayFor(modelItem => item.MinimalePrijs)
+        </td>
+        <td>
             @Html.ActionLink("Book", "Period", new { id = item.KamerNr })
           
         </td>
