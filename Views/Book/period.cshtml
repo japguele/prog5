@@ -1,0 +1,87 @@
+﻿@model prog5.Models.BookKamerModel
+
+@{
+    ViewBag.Title = "period";
+}
+
+<h2>period</h2>
+
+<div>
+    <h4>Kamer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kamer.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kamer.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kamer.Capaciteit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model =>  model.Kamer.Capaciteit)
+        </dd>
+
+    </dl>
+</div>  
+<h4>Full on</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    @foreach (var item in Model.Booking) {
+        <dt>
+            @item.StartDate
+        </dt>
+
+        <dd>
+            @item.EndDate
+        </dd>
+
+     
+    }
+    </dl>
+
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Booking</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+           <div class="form-group">
+                @Html.LabelFor(model => model.Book.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Book.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Book.StartDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Book.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Book.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Book.EndDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Book" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+   
+
+
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

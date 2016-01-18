@@ -94,7 +94,7 @@ namespace prog5.Models
 
             context.Gast.Add(new Gast()
             {
-                GastNr = 0,
+               
                 Naam = "jan",
                 TussenVoegsel = "van",
                 Achternaam = "hooi",
@@ -108,13 +108,7 @@ namespace prog5.Models
 
             });
 
-            context.Booking.Add(new Booking()
-            {
-                GastNr = 0,
-                StartDate = new DateTime(2015, 1, 15),
-                EndDate = new DateTime(2015, 1, 17),
-
-            });
+         
             context.SaveChanges();
         }
     }

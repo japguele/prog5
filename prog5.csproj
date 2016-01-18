@@ -159,7 +159,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\GastsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PrijsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,6 +169,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\BookKamerModel.cs" />
     <Compile Include="Models\Gast.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Kamer.cs" />
@@ -238,6 +241,15 @@
     <Content Include="Views\Prijs\Details.cshtml" />
     <Content Include="Views\Prijs\Edit.cshtml" />
     <Content Include="Views\Prijs\Index.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Book\Register.cshtml" />
+    <Content Include="Views\Book\Period.cshtml" />
+    <Content Include="Views\Gasts\Create.cshtml" />
+    <Content Include="Views\Gasts\Delete.cshtml" />
+    <Content Include="Views\Gasts\Details.cshtml" />
+    <Content Include="Views\Gasts\Edit.cshtml" />
+    <Content Include="Views\Gasts\Index.cshtml" />
+    <Content Include="Views\Book\Balance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

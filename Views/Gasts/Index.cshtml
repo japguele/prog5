@@ -1,0 +1,81 @@
+﻿@model IEnumerable<prog5.Models.Gast>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TussenVoegsel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Achternaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Geboortedatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vrouw)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Woonplaats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Addres)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TussenVoegsel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achternaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Geboortedatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrouw)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Woonplaats)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Postcode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Addres)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GastNr }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GastNr }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GastNr })
+        </td>
+    </tr>
+}
+
+</table>
