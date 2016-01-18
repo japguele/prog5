@@ -163,7 +163,9 @@
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\GastsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KamersController.cs" />
     <Compile Include="Controllers\PrijsController.cs" />
+    <Compile Include="Controllers\PrijsPeriodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -250,6 +252,16 @@
     <Content Include="Views\Gasts\Edit.cshtml" />
     <Content Include="Views\Gasts\Index.cshtml" />
     <Content Include="Views\Book\Balance.cshtml" />
+    <Content Include="Views\Kamers\Create.cshtml" />
+    <Content Include="Views\Kamers\Delete.cshtml" />
+    <Content Include="Views\Kamers\Details.cshtml" />
+    <Content Include="Views\Kamers\Edit.cshtml" />
+    <Content Include="Views\Kamers\Index.cshtml" />
+    <Content Include="Views\PrijsPeriode\Create.cshtml" />
+    <Content Include="Views\PrijsPeriode\Delete.cshtml" />
+    <Content Include="Views\PrijsPeriode\Details.cshtml" />
+    <Content Include="Views\PrijsPeriode\Edit.cshtml" />
+    <Content Include="Views\PrijsPeriode\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

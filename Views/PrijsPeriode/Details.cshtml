@@ -1,0 +1,42 @@
+﻿@model prog5.Models.PrijsPeriode
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PrijsPeriode</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.prijs.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prijs.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BeginDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeginDatum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EindDatum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EindDatum)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrijsPeriodeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

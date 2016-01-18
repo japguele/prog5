@@ -10,6 +10,8 @@ namespace prog5.Models
     [Table("PrijsPeriode")]
     public class PrijsPeriode
     {
+        [Key]
+        public int PrijsPeriodeId { get; set; }
         public int id { get; set; }
 
         [ForeignKey("id")]
