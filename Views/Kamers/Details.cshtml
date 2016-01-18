@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.PrijsPeriode.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrijsPeriode.id)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Naam)
         </dt>
 
@@ -27,11 +35,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Prijs)
+            @Html.DisplayNameFor(model => model.MinimalePrijs)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Prijs)
+            @Html.DisplayFor(model => model.MinimalePrijs)
         </dd>
 
     </dl>
